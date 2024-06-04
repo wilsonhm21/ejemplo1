@@ -12,7 +12,7 @@ use PDF;
 
 class SocioController extends Controller
 {
-    
+
 
 
     /**
@@ -36,9 +36,9 @@ class SocioController extends Controller
         $provincias = Provincia::all();
         $distritos = Distrito::all();
 
-        $pdf = PDF::loadView('socios.pdf',['socios'=>$socios]);
+        //$pdf = PDF::loadView('socios.pdf',['socios'=>$socios]);
         //$pdf->loadHTML('socios');
-        return $pdf->stream();
+        //return $pdf->stream();
 
         //return view('socios.pdf', compact( 'socios'));
     }
@@ -50,7 +50,7 @@ class SocioController extends Controller
      */
     public function create()
     {
-        //    
+        //
         $personas = Persona::all();
         $departamentos = Departamento::all();
         return view('socios.create', compact('personas', 'departamentos'));
@@ -90,13 +90,13 @@ class SocioController extends Controller
             'imagen' => 'required|image|mimes:jpeg,png,svg|max:1024',
         ]);
 
-        
+
         $socio = $request->all();
         if($imagen = $request->file('imagen')) {
             $rutaGuardarImg = 'imagen/';
             $imagenSocio = date('YmdHis'). "." . $imagen->getClientOriginalExtension();
             $imagen->move($rutaGuardarImg, $imagenSocio);
-            $socio['imagen'] = "$imagenSocio";             
+            $socio['imagen'] = "$imagenSocio";
         }
 
         Socio::create($socio);
@@ -162,7 +162,7 @@ class SocioController extends Controller
             $rutaGuardarImg = 'imagen/';
             $imagenSocio = date('YmdHis'). "." . $imagen->getClientOriginalExtension();
             $imagen->move($rutaGuardarImg, $imagenSocio);
-            $soc['imagen'] = "$imagenSocio";             
+            $soc['imagen'] = "$imagenSocio";
         }else{
             unset($prod['imagen']);
          }
