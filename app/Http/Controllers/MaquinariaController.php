@@ -7,6 +7,7 @@ use App\Models\Maquinaria;
 
 class MaquinariaController extends Controller
 {
+    private $redirectTo = '/maquinarias';
     /**
      * Display a listing of the resource.
      *
@@ -59,7 +60,7 @@ class MaquinariaController extends Controller
 
         $maquinaria->save();
 
-        return redirect('/maquinarias');
+        return redirect($this->redirectTo);
     }
 
     /**
@@ -116,7 +117,7 @@ class MaquinariaController extends Controller
 
         $maquinaria->save();
 
-        return redirect('/maquinarias');
+        return redirect($this->redirectTo);
     }
 
     /**
@@ -130,6 +131,6 @@ class MaquinariaController extends Controller
         //
         $persona = Maquinaria::find($id);
         $persona->delete();
-        return redirect('/maquinarias');
+        return redirect($this->redirectTo);
     }
 }
