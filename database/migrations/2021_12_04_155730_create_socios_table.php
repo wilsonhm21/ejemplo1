@@ -19,7 +19,7 @@ class CreateSociosTable extends Migration
             $table->string('codigo',50);
             $table->string('tipo',50);
             $table->string('categoria',8);
-            $table->string('imagen');
+            $table->string('imagen')->nullable();
             $table->string('es_socio',50);
             $table->string('comunidad',50);
             $table->string('distrito_id');
