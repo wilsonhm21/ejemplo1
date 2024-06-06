@@ -7,6 +7,7 @@ use App\Models\Maquinaria;
 
 class MaquinariaController extends Controller
 {
+    // redirección
     private $redirectTo = '/maquinarias';
     /**
      * Display a listing of the resource.
